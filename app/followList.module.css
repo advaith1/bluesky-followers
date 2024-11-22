@@ -1,0 +1,47 @@
+.progress {
+	width: 100%;
+	border-radius: 100px;
+	overflow: hidden;
+	border: none;
+	margin: 3px 0;
+
+	--color: #1083fe;
+	--bg: #f1f3f5;
+
+	@media (prefers-color-scheme: dark) {
+		--bg: #141b23;
+	}
+}
+
+/* chrome */
+.progress::-webkit-progress-value {
+	background-color: var(--color);
+}
+.progress::-webkit-progress-bar {
+	background-color: var(--bg);
+}
+
+/* firefox */
+.progress::-moz-progress-bar {
+	background-color: var(--color);
+}
+.progress {
+	background-color: var(--bg);
+}
+
+.homeText,
+.numResults {
+	font-weight: bold;
+
+	@media (max-width: 600px) {
+		text-align: center;
+	}
+}
+
+.homeText {
+	font-size: 2em;
+}
+
+.numResults {
+	font-size: 1.1em;
+}

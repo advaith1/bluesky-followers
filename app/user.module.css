@@ -1,0 +1,59 @@
+.user {
+	display: grid;
+	grid-template-areas:
+		'avatar displayname'
+		'avatar details';
+	grid-template-columns: 40px 1fr;
+	margin-bottom: 4px;
+	gap: 3px 16px;
+	align-items: center;
+	padding: 6px;
+	border-radius: 8px;
+	content-visibility: auto;
+	contain-intrinsic-size: auto 55px;
+
+	/* Enable hover only on non-touch devices */
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			background-color: #f1f3f5;
+
+			@media (prefers-color-scheme: dark) {
+				background-color: #141b23;
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		padding: 6px 0;
+	}
+}
+
+.avatar {
+	grid-area: avatar;
+	border-radius: 50%;
+}
+
+.displayname {
+	font-size: 1.1em;
+	font-weight: bold;
+	grid-area: displayname;
+}
+
+.details {
+	grid-area: details;
+	color: #42576c;
+	font-size: 0.95em;
+	display: flex;
+	gap: 5px;
+	flex-wrap: wrap;
+
+	@media (prefers-color-scheme: dark) {
+		color: #c3c6d6;
+	}
+}
+
+@media (max-width: 600px) {
+	.user {
+		column-gap: 12px;
+	}
+}
