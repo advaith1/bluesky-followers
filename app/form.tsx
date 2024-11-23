@@ -3,15 +3,17 @@
 import { useRouter } from 'next/navigation'
 import useParams from './useParams'
 import styles from './form.module.css'
+import type { InputHTMLAttributes } from 'react'
 
 const inputProps = {
 	placeholder: 'anyone',
 	pattern: '^[a-zA-Z0-9.\\-]+\\.[a-zA-Z][a-zA-Z0-9\\-]{1,63}$',
 	title: 'Must be a valid Bluesky handle, e.g. "advaith.bsky.social" or "atproto.com"',
+	autoCapitalize: 'off',
 	maxLength: 253,
 	className: styles.input,
 	size: 16
-}
+} satisfies InputHTMLAttributes<HTMLInputElement>
 
 export default function Form() {
 	const { followersOf, followedBy } = useParams()
@@ -33,7 +35,7 @@ export function BaseForm({
 	function submit(data: FormData) {
 		const params = new URLSearchParams()
 		for (const [key, value] of data.entries() as FormDataIterator<[string, string]>) {
-			if (value) params.set(key, value)
+			if (value) params.set(key, value.toLowerCase())
 		}
 		push('?' + params.toString())
 	}

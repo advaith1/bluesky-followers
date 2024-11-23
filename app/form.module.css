@@ -19,6 +19,7 @@
 	font-size: inherit;
 	font-family: inherit;
 	font-weight: inherit;
+	text-transform: lowercase;
 	border-radius: 8px;
 	background-color: #f1f3f5;
 	padding: 2px 4px;
